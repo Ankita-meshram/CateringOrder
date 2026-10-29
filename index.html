@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+    <title>Catering Order System</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #f4f7fb;
+        color: #1f3864;
+        text-align: center;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    form {
+        width: 350px;
+        margin: auto;
+        background:lightgrey;
+        padding: 18px;
+        border: 1px solid #1f3864;
+        text-align: left;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 5px;
+        margin: 8px 0 12px;
+        text-align:left;
+        color: black;
+    }
+
+    input[type="submit"] {
+        display: block;
+        margin: auto;
+        background: brown;
+        color: black;
+        padding: 7px 18px;
+        border: none;
+        cursor: pointer;
+    }
+
+    #message{
+        text-align: center;
+        color:red;
+        margin-top: 12px;
+    }
+</style>
+
+<script>
+    function validateForm(){
+        let plates = document.getElementIById("plates").value;
+        let message = document.getElementIById("message");
+
+        if(plates ===""||Number(plates)<10){
+            message.innerHTML="Alert: plates must be at least 10";
+            return false;
+        }
+        message.innerHTML="";
+        return true;
+    }
+</script>
+</head>
+
+<body>
+<h1> Catering Order Entry</h1>
+<form action="result.jsp" method="post">
+
+    Customer
+    <input type="text" name="customer" required><br><br>
+
+    Event
+    <input type="text" name="event" required><br><br>
+
+    Plates
+    <input type="number" id="plates" name="plates" min="10" required><br><br>
+
+    Rate Per Unit
+    <input type="number" name="rate" min="1" required><br><br>
+
+    <input type="submit" value="Save">
+
+    <p id="message"></p>
+</form>
+</body>
+</html>
